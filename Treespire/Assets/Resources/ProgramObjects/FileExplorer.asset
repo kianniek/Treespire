@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5c3b12316d072429d0c5055bc881b2, type: 3}
+  m_Name: FileExplorer
+  m_EditorClassIdentifier: 
+  programName: File Explorer
+  iconSprite: {fileID: 21300000, guid: 7b9eb765a5226a84eb36ac20cefd212b, type: 3}
+  hasDesktopShortcut: 1
+  hasStartMenuShortcut: 1
+  fileExplorerWindowPrefab: {fileID: 3407149363296588765, guid: c4f2ed5b6c9e5c44e9d6dc591abef411, type: 3}
+  defaultFileSprite: {fileID: 21300000, guid: c38b5ddbcccc7ee48aa4dc4a4c785e2c, type: 3}
+  defaultFolderSprite: {fileID: 21300000, guid: 7b9eb765a5226a84eb36ac20cefd212b, type: 3}
+  iconSpritePairs:
+  - iconType: 0
+    sprite: {fileID: 21300000, guid: 7b9eb765a5226a84eb36ac20cefd212b, type: 3}
+  - iconType: 1
+    sprite: {fileID: 21300000, guid: c139825720f7b804b89b6d1c304831ba, type: 3}
+  - iconType: 2
+    sprite: {fileID: 21300000, guid: 2c9faf4e84ef451489169b8c06dd6144, type: 3}
+  - iconType: 3
+    sprite: {fileID: 21300000, guid: c2c0750e5672c294bb2dbb7dad5c31ff, type: 3}
+  - iconType: 4
+    sprite: {fileID: 21300000, guid: 8e68edef23d53ee419e52d62dc88af0a, type: 3}
+  - iconType: 5
+    sprite: {fileID: 21300000, guid: 9ae2ea0933d6feb469897e1fb4f7e29b, type: 3}
+  - iconType: 6
+    sprite: {fileID: 21300000, guid: 0e558b20d7c0cb5418429c6185af2ff6, type: 3}
+  - iconType: 50
+    sprite: {fileID: 21300000, guid: c38b5ddbcccc7ee48aa4dc4a4c785e2c, type: 3}
+  - iconType: 51
+    sprite: {fileID: 21300000, guid: 4b8922efd06df094ab99d1d48b3df27f, type: 3}
+  - iconType: 52
+    sprite: {fileID: 21300000, guid: ae6b68cb5ef160d4f9753ad0dca7352e, type: 3}
+  - iconType: 53
+    sprite: {fileID: 21300000, guid: ea85179a05193894190bddc3276b0dc8, type: 3}
+  iconExtensionPairs:
+  - extensions:
+    - .png
+    - .jpg
+    - .jpeg
+    iconType: 51
+  - extensions:
+    - .mp3
+    - .wav
+    - .flac
+    iconType: 52
+  - extensions:
+    - .txt
+    - .bin
+    - .doc
+    iconType: 53
+  iconFolderNamePairs:
+  - folderName: Guest
+    iconType: 6
+  - folderName: Admin
+    iconType: 6
+  - folderName: Images
+    iconType: 2
+  - folderName: Music
+    iconType: 3
+  - folderName: Documents
+    iconType: 4
+  - folderName: Desktop
+    iconType: 1
+  excludedExtensions:
+  - .meta
+  quickAccessFolders:
+  - My Computer/C/Users/Guest/Desktop/
+  - My Computer/C/Users/Guest/Documents/
+  - My Computer/C/Users/Guest/Images/
+  - My Computer/C/Users/Guest/Music/
+  lockedFolders:
+  - My Computer/C/Users/Admin
+  accessDeniedToFileError:
+    message: Cannot open file. Access denied.
+    code: 747
+  accessDeniedToFolderError:
+    message: Cannot open folder. Access denied.
+    code: 474
+  pathNotFoundError:
+    message: Path not found.
+    code: 774

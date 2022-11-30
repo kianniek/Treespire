@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<BinaryTree xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <rootNode>
+    <text>Is it an animal?</text>
+    <leftNode>
+      <text>Is it alive?</text>
+      <leftNode>
+        <text>Can you eat it?</text>
+        <leftNode>
+          <text>book</text>
+        </leftNode>
+        <rightNode>
+          <text>Is it healthy to eat?</text>
+          <leftNode>
+            <text>KFC bucket full of chicken</text>
+          </leftNode>
+          <rightNode>
+            <text>avocado</text>
+          </rightNode>
+        </rightNode>
+      </leftNode>
+      <rightNode>
+        <text>Is it a person?</text>
+        <leftNode>
+          <text>plant</text>
+        </leftNode>
+        <rightNode>
+          <text>Is it an artist?</text>
+          <leftNode>
+            <text>Mark Rutte</text>
+          </leftNode>
+          <rightNode>
+            <text>Vincent van Gogh</text>
+          </rightNode>
+        </rightNode>
+      </rightNode>
+    </leftNode>
+    <rightNode>
+      <text>Is it heavy?</text>
+      <leftNode>
+        <text>Does it hunt?</text>
+        <leftNode>
+          <text>Does it have long ears?</text>
+          <leftNode>
+            <text>mouse</text>
+          </leftNode>
+          <rightNode>
+            <text>bunny</text>
+          </rightNode>
+        </leftNode>
+        <rightNode>
+          <text>cat</text>
+        </rightNode>
+      </leftNode>
+      <rightNode>
+        <text>Is it hairy?</text>
+        <leftNode>
+          <text>Does it live in the water?</text>
+          <leftNode>
+            <text>elephant</text>
+          </leftNode>
+          <rightNode>
+            <text>whale</text>
+          </rightNode>
+        </leftNode>
+        <rightNode>
+          <text>bear</text>
+        </rightNode>
+      </rightNode>
+    </rightNode>
+  </rootNode>
+</BinaryTree>

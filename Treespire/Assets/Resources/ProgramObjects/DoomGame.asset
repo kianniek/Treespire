@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b342cd37baacec4aa0c5748cbf08038, type: 3}
+  m_Name: DoomGame
+  m_EditorClassIdentifier: 
+  programName: Doom
+  iconSprite: {fileID: 21300000, guid: 17e7ac5bd6ef71c479556db7f274abfb, type: 3}
+  hasDesktopShortcut: 1
+  hasStartMenuShortcut: 1

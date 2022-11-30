@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652630f34d1b2114b857c38e16e5a2f8, type: 3}
+  m_Name: NoughtsAndCrosses
+  m_EditorClassIdentifier: 
+  programName: Noughts 'nd Crosses
+  iconSprite: {fileID: 21300000, guid: 19bc9904e703f1a4ca1a69a4957a2ff2, type: 3}
+  hasDesktopShortcut: 1
+  hasStartMenuShortcut: 1
+  gameWindowPrefab: {fileID: 6737907714786248668, guid: e841073af709abf4eb9d446dffee0a68, type: 3}

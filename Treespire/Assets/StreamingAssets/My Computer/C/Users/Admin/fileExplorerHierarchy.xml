@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<TreeOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <rootNode>
+    <content>My Computer</content>
+    <childNodes>
+      <NodeOfString>
+        <content>C</content>
+        <childNodes>
+          <NodeOfString>
+            <content>Program Files</content>
+          </NodeOfString>
+          <NodeOfString>
+            <content>Users</content>
+            <childNodes>
+              <NodeOfString>
+                <content>Admin</content>
+              </NodeOfString>
+              <NodeOfString>
+                <content>Guest</content>
+                <childNodes>
+                  <NodeOfString>
+                    <content>Desktop</content>
+                  </NodeOfString>
+                  <NodeOfString>
+                    <content>Documents</content>
+                    <childNodes>
+                      <NodeOfString>
+                        <content>20Questions</content>
+                      </NodeOfString>
+                    </childNodes>
+                  </NodeOfString>
+                  <NodeOfString>
+                    <content>Images</content>
+                  </NodeOfString>
+                  <NodeOfString>
+                    <content>Music</content>
+                  </NodeOfString>
+                </childNodes>
+              </NodeOfString>
+            </childNodes>
+          </NodeOfString>
+        </childNodes>
+      </NodeOfString>
+    </childNodes>
+  </rootNode>
+</TreeOfString>
