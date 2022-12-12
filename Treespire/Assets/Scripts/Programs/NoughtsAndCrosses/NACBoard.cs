@@ -219,36 +219,167 @@ public class NACBoard
     /// Evaluates and scores the current state of the board.
     /// </summary>
     /// <returns>The evaluated score</returns>
+    //internal int Evaluate()
+    //{
+    //     //compare horizontals
+    //    TurnType h1 = CompareCoordinates(coordinates[0, 0], coordinates[1, 0], coordinates[2, 0]);
+    //    TurnType h2 = CompareCoordinates(coordinates[0, 1], coordinates[1, 1], coordinates[2, 1]);
+    //    TurnType h3 = CompareCoordinates(coordinates[0, 2], coordinates[1, 2], coordinates[2, 2]);
+
+    //     //compare vertical
+    //    TurnType v1 = CompareCoordinates(coordinates[0, 0], coordinates[0, 1], coordinates[0, 2]);
+    //    TurnType v2 = CompareCoordinates(coordinates[1, 0], coordinates[1, 1], coordinates[1, 2]);
+    //    TurnType v3 = CompareCoordinates(coordinates[2, 0], coordinates[2, 1], coordinates[2, 2]);
+
+    //    // compare diagonals
+    //    TurnType d1 = CompareCoordinates(coordinates[0, 0], coordinates[1, 1], coordinates[2, 2]);
+    //    TurnType d2 = CompareCoordinates(coordinates[0, 2], coordinates[1, 1], coordinates[2, 0]);
+
+    //     //is there a win for cross? 
+    //     //return -1 if the player plays cross, else 1
+    //    if (h1 == TurnType.Cross || h2 == TurnType.Cross || h3 == TurnType.Cross ||
+    //       v1 == TurnType.Cross || v2 == TurnType.Cross || v3 == TurnType.Cross ||
+    //       d1 == TurnType.Cross || d2 == TurnType.Cross)
+    //        return gameRef.playersTurn == TurnType.Cross ? -1 : 1;
+    //     //is there a win for nought?
+    //     //return -1 if the player plays nought, else 1
+    //    else if (h1 == TurnType.Nought || h2 == TurnType.Nought || h3 == TurnType.Nought ||
+    //       v1 == TurnType.Nought || v2 == TurnType.Nought || v3 == TurnType.Nought ||
+    //       d1 == TurnType.Nought || d2 == TurnType.Nought)
+    //        return gameRef.playersTurn == TurnType.Nought ? -1 : 1;
+    //     //if there is no win (yet), return 0
+    //    else
+    //        return 0;
+    //}
+
     internal int Evaluate()
     {
-        // compare horizontals
-        TurnType h1 = CompareCoordinates(coordinates[0, 0], coordinates[1, 0], coordinates[2, 0]);
-        TurnType h2 = CompareCoordinates(coordinates[0, 1], coordinates[1, 1], coordinates[2, 1]);
-        TurnType h3 = CompareCoordinates(coordinates[0, 2], coordinates[1, 2], coordinates[2, 2]);
+        TurnType turnType1 = this.CompareCoordinates(this.coordinates[0, 0], this.coordinates[1, 0], this.coordinates[2, 0]);
+        TurnType turnType2 = this.CompareCoordinates(this.coordinates[0, 1], this.coordinates[1, 1], this.coordinates[2, 1]);
+        TurnType turnType3 = this.CompareCoordinates(this.coordinates[0, 2], this.coordinates[1, 2], this.coordinates[2, 2]);
+        TurnType turnType4 = this.CompareCoordinates(this.coordinates[0, 0], this.coordinates[0, 1], this.coordinates[0, 2]);
+        TurnType turnType5 = this.CompareCoordinates(this.coordinates[1, 0], this.coordinates[1, 1], this.coordinates[1, 2]);
+        TurnType turnType6 = this.CompareCoordinates(this.coordinates[2, 0], this.coordinates[2, 1], this.coordinates[2, 2]);
+        TurnType turnType7 = this.CompareCoordinates(this.coordinates[0, 0], this.coordinates[1, 1], this.coordinates[2, 2]);
+        TurnType turnType8 = this.CompareCoordinates(this.coordinates[0, 2], this.coordinates[1, 1], this.coordinates[2, 0]);
 
-        // compare vertical
-        TurnType v1 = CompareCoordinates(coordinates[0, 0], coordinates[0, 1], coordinates[0, 2]);
-        TurnType v2 = CompareCoordinates(coordinates[1, 0], coordinates[1, 1], coordinates[1, 2]);
-        TurnType v3 = CompareCoordinates(coordinates[2, 0], coordinates[2, 1], coordinates[2, 2]);
+        for (int x = 0; x < 2; x++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
 
-        // compare diagonals
-        TurnType d1 = CompareCoordinates(coordinates[0, 0], coordinates[1, 1], coordinates[2, 2]);
-        TurnType d2 = CompareCoordinates(coordinates[0, 2], coordinates[1, 1], coordinates[2, 0]);
+            }
+        }
+        if (turnType1 == TurnType.Cross || turnType2 == TurnType.Cross || turnType3 == TurnType.Cross || turnType4 == TurnType.Cross || turnType5 == TurnType.Cross || turnType6 == TurnType.Cross || turnType7 == TurnType.Cross || turnType8 == TurnType.Cross)
+        {
+            return this.gameRef.playersTurn != TurnType.Cross ? 1 : -1;
+        }
 
-        // is there a win for cross? 
-        // return -1 if the player plays cross, else 1
-        if (h1 == TurnType.Cross || h2 == TurnType.Cross || h3 == TurnType.Cross ||
-           v1 == TurnType.Cross || v2 == TurnType.Cross || v3 == TurnType.Cross ||
-           d1 == TurnType.Cross || d2 == TurnType.Cross)
-            return gameRef.playersTurn == TurnType.Cross ? -1 : 1;
-        // is there a win for nought?
-        // return -1 if the player plays nought, else 1
-        else if (h1 == TurnType.Nought || h2 == TurnType.Nought || h3 == TurnType.Nought ||
-           v1 == TurnType.Nought || v2 == TurnType.Nought || v3 == TurnType.Nought ||
-           d1 == TurnType.Nought || d2 == TurnType.Nought)
-            return gameRef.playersTurn == TurnType.Nought ? -1 : 1;
-        // if there is no win (yet), return 0
-        else
+        if (turnType1 != TurnType.Nought && turnType2 != TurnType.Nought && turnType3 != TurnType.Nought && turnType4 != TurnType.Nought && turnType5 != TurnType.Nought && turnType6 != TurnType.Nought && turnType7 != TurnType.Nought && turnType8 != TurnType.Nought)
+        {
             return 0;
+        }
+        return this.gameRef.playersTurn != TurnType.Nought ? 1 : -1;
     }
+
+    #region evluate Test
+    internal int Evaluate()
+    {
+        int score = 0;
+        // Evaluate score for each of the 8 lines (3 rows, 3 columns, 2 diagonals)
+        score += EvaluateLine(0, 0, 0, 1, 0, 2);  // row 0
+        score += EvaluateLine(1, 0, 1, 1, 1, 2);  // row 1
+        score += EvaluateLine(2, 0, 2, 1, 2, 2);  // row 2
+        score += EvaluateLine(0, 0, 1, 0, 2, 0);  // col 0
+        score += EvaluateLine(0, 1, 1, 1, 2, 1);  // col 1
+        score += EvaluateLine(0, 2, 1, 2, 2, 2);  // col 2
+        score += EvaluateLine(0, 0, 1, 1, 2, 2);  // diagonal
+        score += EvaluateLine(0, 2, 1, 1, 2, 0);  // alternate diagonal
+        return score;
+    }
+
+    /** The heuristic evaluation function for the given line of 3 cells
+        @Return +100, +10, +1 for 3-, 2-, 1-in-a-line for computer.
+                -100, -10, -1 for 3-, 2-, 1-in-a-line for opponent.
+                0 otherwise */
+    private int EvaluateLine(int row1, int col1, int row2, int col2, int row3, int col3)
+    {
+        int score = 0;
+
+        // First cell
+        if (this.coordinates[row1, col1].playedType == TurnType.Cross)
+        {
+            score = 1;
+        }
+        else if (this.coordinates[row1,col1].playedType == TurnType.Nought)
+        {
+            score = -1;
+        }
+
+        // Second cell
+        if (this.coordinates[row2,col2].playedType == TurnType.Cross)
+        {
+            if (score == 1)
+            {   // cell1 is mySeed
+                score = 10;
+            }
+            else if (score == -1)
+            {  // cell1 is oppSeed
+                return 0;
+            }
+            else
+            {  // cell1 is empty
+                score = 1;
+            }
+        }
+        else if (this.coordinates[row2,col2].playedType == TurnType.Nought)
+        {
+            if (score == -1)
+            { // cell1 is oppSeed
+                score = -10;
+            }
+            else if (score == 1)
+            { // cell1 is mySeed
+                return 0;
+            }
+            else
+            {  // cell1 is empty
+                score = -1;
+            }
+        }
+
+        // Third cell
+        if (this.coordinates[row3, col3].playedType == TurnType.Cross)
+        {
+            if (score > 0)
+            {  // cell1 and/or cell2 is mySeed
+                score *= 10;
+            }
+            else if (score < 0)
+            {  // cell1 and/or cell2 is oppSeed
+                return 0;
+            }
+            else
+            {  // cell1 and cell2 are empty
+                score = 1;
+            }
+        }
+        else if (this.coordinates[row3, col3].playedType == TurnType.Nought)
+        {
+            if (score < 0)
+            {  // cell1 and/or cell2 is oppSeed
+                score *= 10;
+            }
+            else if (score > 1)
+            {  // cell1 and/or cell2 is mySeed
+                return 0;
+            }
+            else
+            {  // cell1 and cell2 are empty
+                score = -1;
+            }
+        }
+        return score;
+    }
+    #endregion
 }

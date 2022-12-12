@@ -1,71 +1,53 @@
 <?xml version="1.0"?>
 <BinaryTree xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <rootNode>
-    <text>Is it an animal?</text>
+    <text>Is it a human?</text>
     <leftNode>
-      <text>Is it alive?</text>
+      <text>Is it a car?</text>
       <leftNode>
-        <text>Can you eat it?</text>
+        <text>Is it an object?</text>
         <leftNode>
-          <text>book</text>
-        </leftNode>
-        <rightNode>
-          <text>Is it healthy to eat?</text>
+          <text>Is it an animal?</text>
           <leftNode>
-            <text>KFC bucket full of chicken</text>
+            <text>Kim Kardashian</text>
           </leftNode>
           <rightNode>
-            <text>avocado</text>
+            <text>Sarah Mercia</text>
+          </rightNode>
+        </leftNode>
+        <rightNode>
+          <text>Can you wear it?</text>
+          <leftNode>
+            <text>Does it have a keyboard?</text>
+            <leftNode>
+              <text>Smartphone</text>
+            </leftNode>
+            <rightNode>
+              <text>Laptop</text>
+            </rightNode>
+          </leftNode>
+          <rightNode>
+            <text>Headphones</text>
           </rightNode>
         </rightNode>
       </leftNode>
       <rightNode>
-        <text>Is it a person?</text>
-        <leftNode>
-          <text>plant</text>
-        </leftNode>
-        <rightNode>
-          <text>Is it an artist?</text>
-          <leftNode>
-            <text>Mark Rutte</text>
-          </leftNode>
-          <rightNode>
-            <text>Vincent van Gogh</text>
-          </rightNode>
-        </rightNode>
+        <text>Rode Ferrarri</text>
       </rightNode>
     </leftNode>
     <rightNode>
-      <text>Is it heavy?</text>
+      <text>Do you have contact with this person often?</text>
       <leftNode>
-        <text>Does it hunt?</text>
+        <text>Was or is it a presedent?</text>
         <leftNode>
-          <text>Does it have long ears?</text>
-          <leftNode>
-            <text>mouse</text>
-          </leftNode>
-          <rightNode>
-            <text>bunny</text>
-          </rightNode>
+          <text>Ryan Reynolds</text>
         </leftNode>
         <rightNode>
-          <text>cat</text>
+          <text>Trump</text>
         </rightNode>
       </leftNode>
       <rightNode>
-        <text>Is it hairy?</text>
-        <leftNode>
-          <text>Does it live in the water?</text>
-          <leftNode>
-            <text>elephant</text>
-          </leftNode>
-          <rightNode>
-            <text>whale</text>
-          </rightNode>
-        </leftNode>
-        <rightNode>
-          <text>bear</text>
-        </rightNode>
+        <text>Partner</text>
       </rightNode>
     </rightNode>
   </rootNode>

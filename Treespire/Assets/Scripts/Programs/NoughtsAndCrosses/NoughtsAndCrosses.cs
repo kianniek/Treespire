@@ -135,7 +135,7 @@ public class NoughtsAndCrosses : Program
     internal void ClickedChoose(TurnType turnType)
     {
         // error if none was somehow passed!
-        if(turnType == TurnType.None)
+        if (turnType == TurnType.None)
         {
             Debug.LogError("Have to play with either nought or cross! None was chosen");
             return;
@@ -358,18 +358,33 @@ public class NoughtsAndCrosses : Program
     /// <returns>The best score</returns>
     private int Minimax(Node<NACBoard> node, bool max)
     {
-        // TODO: implement this function so that
-        // 1. it returns the best score  
-        // 2. and it saves the corresponding move to play in bestMove
+        if (node == null)
+        {
+            Debug.LogError("Node is null | Can't minimax");
+            return 0;
+        }
+        if (node.IsLeafNode())
+        {
+            return node.content.Evaluate();
+        }
+        int[] results = new int[node.childNodes.Length];
 
-        // use node.content.Evaluate() to get the evaluated score of that node
-        // use GetMaxIndex() and GetMinIndex() to get the index of the highest or lowest score
-        // call Minimax recursively for all child nodes, until it's a leaf node
-        // alternate between max and min levels 
-
-        // TEMP code to pick the first possible move
-        bestMove = node.childNodes[0].content.lastSetCoordinate;
-        return 0;
+        for (int i = 0; i < node.childNodes.Length; i++)
+        {
+            results[i] = Minimax(node.childNodes[i], !max);
+        }
+            
+        int j;
+        if (max)
+        {
+            j = GetMaxIndex(results);
+            bestMove = node.childNodes[j].content.lastSetCoordinate;
+        }
+        else
+        {
+            j = GetMinIndex(results);
+        }
+        return results[j];
     }
 
     /// <summary>
@@ -388,7 +403,7 @@ public class NoughtsAndCrosses : Program
         {
             // if the score is higher than the one we already got, 
             // update the best score and index
-            if(results[i] > bestScore)
+            if (results[i] > bestScore)
             {
                 bestScore = results[i];
                 bestIndex = i;
@@ -404,7 +419,7 @@ public class NoughtsAndCrosses : Program
     /// </summary>
     /// <param name="results">The array to pick the lowest int from</param>
     /// <returns>The index of the lowest int</returns>
-    private int GetMinIndex(int[] results) 
+    private int GetMinIndex(int[] results)
     {
         // init best score and index 
         int bestScore = Int32.MaxValue;

@@ -15,10 +15,14 @@ public class BinaryTree
     // query count, keep track of current
     internal int currentQuery;
 
+    string listOfNodes;
+
     /// <summary>
     /// Constructor for new empty tree
     /// </summary>
-    public BinaryTree() { }
+    public BinaryTree() {
+        
+    }
 
     /// <summary>
     /// Constructor for new tree with parameters for the first node
@@ -34,6 +38,8 @@ public class BinaryTree
         // set l and r text as child nodes to the root
         rootNode.rightNode = new BinaryNode(leftNodeText);
         rootNode.leftNode = new BinaryNode(rightNodeText);
+
+        Debug.Log(PrintPreOrder(rootNode));
     }
 
     /// <summary>
@@ -85,5 +91,61 @@ public class BinaryTree
         // reset node and count
         currentQuery = -1;
         currentNode = null;
+    }
+
+    
+    public string PrintPreOrder(BinaryNode node)
+    {
+        if (node == null)
+            return listOfNodes;
+        /* then print the data of node */
+        //Console.Write(node.text + " ");
+        listOfNodes += node.text + ", ";
+
+        /* first recur on left child */
+        PrintPreOrder(node.leftNode);
+
+        /* now recur on right child */
+        PrintPreOrder(node.rightNode);
+        return listOfNodes;
+    }
+
+    public string PrintPostOrder(BinaryNode node)
+    {
+        if (node == null)
+            return listOfNodes;
+
+        /* first recur on left child */
+        PrintPostOrder(node.leftNode);
+
+
+        /* now recur on right child */
+        PrintPostOrder(node.rightNode);
+
+        /* then print the data of node */
+        //Console.Write(node.text + " ");
+        listOfNodes += node.text + ", ";
+
+        return listOfNodes;
+    }
+    public string PrintInOrder(BinaryNode node)
+    {
+        if (node == null)
+            return listOfNodes;
+
+        /* first recur on left child */
+        PrintInOrder(node.leftNode);
+
+        /* then print the data of node */
+        //Console.Write(node.text + " ");
+        listOfNodes += node.text + ", ";
+        /* now recur on right child */
+        PrintInOrder(node.rightNode);
+        return listOfNodes;
+    }
+
+    public void ClearListOfNodes()
+    {
+        listOfNodes = "";
     }
 }

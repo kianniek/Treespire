@@ -156,8 +156,13 @@ public class QuestionsGame : Program
             tree = XMLSerializer.Deserialize<BinaryTree>(GetQGKnowledgeFilePath);
             if (tree != null && tree.rootNode != null && tree.rootNode.leftNode != null && tree.rootNode.rightNode != null)
                 knowledgeLoaded = true;
+            Debug.Log("[" + tree.PrintInOrder(tree.rootNode) + "]");
+            tree.ClearListOfNodes();
+            Debug.Log("[" + tree.PrintPostOrder(tree.rootNode) + "]");
+            tree.ClearListOfNodes();
+            Debug.Log("[" + tree.PrintPreOrder(tree.rootNode) + "]");
+            tree.ClearListOfNodes();
         }
-
         // if there is knowledge stored and loaded, new or existing game can be played
         // else new game is started
         if (knowledgeLoaded)
@@ -334,7 +339,6 @@ public class QuestionsGame : Program
         {
             // create a new tree with the data
             tree = new BinaryTree(newQuestion, newYesAnswer, newNoAnswer);
-
             // append texts, prompt for play game
             gameWindow.AppendToMessage(NEW_KNOWLEDGE, true, false);
             gameWindow.AppendToMessage(PROMPT_PLAY_AFTER_NEW, true, false);
