@@ -282,104 +282,104 @@ public class NACBoard
         return this.gameRef.playersTurn != TurnType.Nought ? 1 : -1;
     }
 
-    #region evluate Test
-    internal int Evaluate()
-    {
-        int score = 0;
-        // Evaluate score for each of the 8 lines (3 rows, 3 columns, 2 diagonals)
-        score += EvaluateLine(0, 0, 0, 1, 0, 2);  // row 0
-        score += EvaluateLine(1, 0, 1, 1, 1, 2);  // row 1
-        score += EvaluateLine(2, 0, 2, 1, 2, 2);  // row 2
-        score += EvaluateLine(0, 0, 1, 0, 2, 0);  // col 0
-        score += EvaluateLine(0, 1, 1, 1, 2, 1);  // col 1
-        score += EvaluateLine(0, 2, 1, 2, 2, 2);  // col 2
-        score += EvaluateLine(0, 0, 1, 1, 2, 2);  // diagonal
-        score += EvaluateLine(0, 2, 1, 1, 2, 0);  // alternate diagonal
-        return score;
-    }
+    //#region evluate Test
+    //internal int Evaluate()
+    //{
+    //    int score = 0;
+    //    // Evaluate score for each of the 8 lines (3 rows, 3 columns, 2 diagonals)
+    //    score += EvaluateLine(0, 0, 0, 1, 0, 2);  // row 0
+    //    score += EvaluateLine(1, 0, 1, 1, 1, 2);  // row 1
+    //    score += EvaluateLine(2, 0, 2, 1, 2, 2);  // row 2
+    //    score += EvaluateLine(0, 0, 1, 0, 2, 0);  // col 0
+    //    score += EvaluateLine(0, 1, 1, 1, 2, 1);  // col 1
+    //    score += EvaluateLine(0, 2, 1, 2, 2, 2);  // col 2
+    //    score += EvaluateLine(0, 0, 1, 1, 2, 2);  // diagonal
+    //    score += EvaluateLine(0, 2, 1, 1, 2, 0);  // alternate diagonal
+    //    return score;
+    //}
 
-    /** The heuristic evaluation function for the given line of 3 cells
-        @Return +100, +10, +1 for 3-, 2-, 1-in-a-line for computer.
-                -100, -10, -1 for 3-, 2-, 1-in-a-line for opponent.
-                0 otherwise */
-    private int EvaluateLine(int row1, int col1, int row2, int col2, int row3, int col3)
-    {
-        int score = 0;
+    ///** The heuristic evaluation function for the given line of 3 cells
+    //    @Return +100, +10, +1 for 3-, 2-, 1-in-a-line for computer.
+    //            -100, -10, -1 for 3-, 2-, 1-in-a-line for opponent.
+    //            0 otherwise */
+    //private int EvaluateLine(int row1, int col1, int row2, int col2, int row3, int col3)
+    //{
+    //    int score = 0;
 
-        // First cell
-        if (this.coordinates[row1, col1].playedType == TurnType.Cross)
-        {
-            score = 1;
-        }
-        else if (this.coordinates[row1,col1].playedType == TurnType.Nought)
-        {
-            score = -1;
-        }
+    //    // First cell
+    //    if (this.coordinates[row1, col1].playedType == TurnType.Cross)
+    //    {
+    //        score = 1;
+    //    }
+    //    else if (this.coordinates[row1,col1].playedType == TurnType.Nought)
+    //    {
+    //        score = -1;
+    //    }
 
-        // Second cell
-        if (this.coordinates[row2,col2].playedType == TurnType.Cross)
-        {
-            if (score == 1)
-            {   // cell1 is mySeed
-                score = 10;
-            }
-            else if (score == -1)
-            {  // cell1 is oppSeed
-                return 0;
-            }
-            else
-            {  // cell1 is empty
-                score = 1;
-            }
-        }
-        else if (this.coordinates[row2,col2].playedType == TurnType.Nought)
-        {
-            if (score == -1)
-            { // cell1 is oppSeed
-                score = -10;
-            }
-            else if (score == 1)
-            { // cell1 is mySeed
-                return 0;
-            }
-            else
-            {  // cell1 is empty
-                score = -1;
-            }
-        }
+    //    // Second cell
+    //    if (this.coordinates[row2,col2].playedType == TurnType.Cross)
+    //    {
+    //        if (score == 1)
+    //        {   // cell1 is mySeed
+    //            score = 10;
+    //        }
+    //        else if (score == -1)
+    //        {  // cell1 is oppSeed
+    //            return 0;
+    //        }
+    //        else
+    //        {  // cell1 is empty
+    //            score = 1;
+    //        }
+    //    }
+    //    else if (this.coordinates[row2,col2].playedType == TurnType.Nought)
+    //    {
+    //        if (score == -1)
+    //        { // cell1 is oppSeed
+    //            score = -10;
+    //        }
+    //        else if (score == 1)
+    //        { // cell1 is mySeed
+    //            return 0;
+    //        }
+    //        else
+    //        {  // cell1 is empty
+    //            score = -1;
+    //        }
+    //    }
 
-        // Third cell
-        if (this.coordinates[row3, col3].playedType == TurnType.Cross)
-        {
-            if (score > 0)
-            {  // cell1 and/or cell2 is mySeed
-                score *= 10;
-            }
-            else if (score < 0)
-            {  // cell1 and/or cell2 is oppSeed
-                return 0;
-            }
-            else
-            {  // cell1 and cell2 are empty
-                score = 1;
-            }
-        }
-        else if (this.coordinates[row3, col3].playedType == TurnType.Nought)
-        {
-            if (score < 0)
-            {  // cell1 and/or cell2 is oppSeed
-                score *= 10;
-            }
-            else if (score > 1)
-            {  // cell1 and/or cell2 is mySeed
-                return 0;
-            }
-            else
-            {  // cell1 and cell2 are empty
-                score = -1;
-            }
-        }
-        return score;
-    }
-    #endregion
+    //    // Third cell
+    //    if (this.coordinates[row3, col3].playedType == TurnType.Cross)
+    //    {
+    //        if (score > 0)
+    //        {  // cell1 and/or cell2 is mySeed
+    //            score *= 10;
+    //        }
+    //        else if (score < 0)
+    //        {  // cell1 and/or cell2 is oppSeed
+    //            return 0;
+    //        }
+    //        else
+    //        {  // cell1 and cell2 are empty
+    //            score = 1;
+    //        }
+    //    }
+    //    else if (this.coordinates[row3, col3].playedType == TurnType.Nought)
+    //    {
+    //        if (score < 0)
+    //        {  // cell1 and/or cell2 is oppSeed
+    //            score *= 10;
+    //        }
+    //        else if (score > 1)
+    //        {  // cell1 and/or cell2 is mySeed
+    //            return 0;
+    //        }
+    //        else
+    //        {  // cell1 and cell2 are empty
+    //            score = -1;
+    //        }
+    //    }
+    //    return score;
+    //}
+    //#endregion
 }
